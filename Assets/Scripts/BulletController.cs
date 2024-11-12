@@ -6,9 +6,11 @@ public class BulletController : MonoBehaviour
     [Header("Bullet Info")]
     [SerializeField] private float activeTime;
 
-    [Header("Particles")]
+    [Header("Particle")]
     [SerializeField] private GameObject damageParticle;
-    [SerializeField] private GameObject ;
+    [SerializeField] private GameObject impactParticle;
+
+
 
     private int damage;
 
@@ -36,13 +38,10 @@ public class BulletController : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             //Instantiate damageParticle "Blood"
-            GameObject particles = Instantiate(damageParticle,transform.position,Quaternion.identity);
-
-            //Create Damage on Enemy
-            other.GetComponent<EnemyController>().DamageEnemy(damage);  
-
+            //GameObject particles = Instantiate(damageParticle,transform.position,Quaternion.identity);
+            //Create damage
+            other.GetComponent<EnemyController>().DamageEnemy(damage);
         }
-
     }
 
 
